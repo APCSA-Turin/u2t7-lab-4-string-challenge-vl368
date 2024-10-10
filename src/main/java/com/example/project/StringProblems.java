@@ -71,7 +71,17 @@ public class StringProblems{
     // fizzString("dib") → "Buzz"
     // fizzString("fib") → "FizzBuzz"
     public String fizzString(String s1){
-        return "";
+        String str = "";
+        if (s1.startsWith("f")) {
+            str += "Fizz";
+        }
+        if (s1.endsWith("b")) {
+            str += "Buzz";
+        }
+        if (str.isEmpty()) {
+            return s1;
+        }
+        return str;
     }
 
     // Given an int n, return the string form of the number followed 
@@ -84,6 +94,19 @@ public class StringProblems{
     // fizzString2(2) → "2!"
     // fizzString2(3) → "Fizz!"
     public String fizzString2(int x){
-        return "";
+        String str = "";
+        if ((x % 3) == 0) {
+            str += "Fizz";
+        }
+        if ((x % 5) == 0) {
+            str += "Buzz";
+        }
+        if (str.equals("FizzBuzz")) {
+            return str;
+        }
+        if (str.equals("")) {
+            str += x;
+        }
+        return str + "!";
     }
 }
