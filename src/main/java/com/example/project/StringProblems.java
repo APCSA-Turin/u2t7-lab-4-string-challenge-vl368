@@ -1,3 +1,5 @@
+package com.example.project;
+
 public class StringProblems{
     //empty constructor
     public StringProblems(){}
@@ -9,6 +11,9 @@ public class StringProblems{
     // endsLy("oddy") → false
     public boolean endsLy(String x){
         //implement code here
+        if (x.length() < 2) {
+            return false;
+        }
         return "ly".equals(x.substring(x.length()-2));
     }
 
@@ -21,8 +26,10 @@ public class StringProblems{
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
         //implement code here
-        if (s1.substring(s1.length() - 1).equals(s2.substring(0,1))) {
-            s1 = s1.substring(1);
+        if (s1.equals("") || s2.equals("")) {
+        }
+        else if (s1.substring(s1.length() - 1).equals(s2.substring(0,1))) {
+            s1 = s1.substring(0,s1.length() - 1);
         }
         return s1 + s2;
     }
@@ -53,12 +60,11 @@ public class StringProblems{
     // withoutX("xHi") → "Hi"
     // withoutX("Hxix") → "Hxi"
     public String withoutX(String s1){
-        int lastidx = s1.length()-1 ;
         if (s1.substring(0,1).equals("x")) {
             s1 = s1.substring(1);
         }
-        if (s1.substring(lastidx).equals("x")) {
-            s1 = s1.substring(lastidx);
+        if (s1.substring(s1.length()-1).equals("x")) {
+            s1 = s1.substring(0, s1.length()-1);
         }
         return s1;
     }
@@ -101,12 +107,16 @@ public class StringProblems{
         if ((x % 5) == 0) {
             str += "Buzz";
         }
-        if (str.equals("FizzBuzz")) {
-            return str;
-        }
         if (str.equals("")) {
             str += x;
         }
         return str + "!";
+    }
+    public static void main(String[] args) {
+        StringProblems o = new StringProblems();
+        String expectedOutput = "Hi";
+        String studentOutput= o.withoutX("xHix");
+        System.out.println(studentOutput);
+        System.out.println(expectedOutput.equals(studentOutput));
     }
 }
